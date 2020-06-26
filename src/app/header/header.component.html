@@ -1,0 +1,25 @@
+<nav class="navigation row">
+    <div class="navigation-icon column column-6">
+        <button mat-fab color="primary" aria-label="home" routerLink="/home">
+            <mat-icon>home</mat-icon>
+          </button>
+    </div>
+    <div class="navigation-menu column column-6">
+        <button mat-icon-button color="primary" [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <div *ngIf="isLoggedIn">
+                <button mat-menu-item routerLink="/admin">Admin</button>
+                <button mat-menu-item routerLink="/employee"> {{username}}</button>
+                <button mat-menu-item routerLink="/work">Work</button>
+                <button mat-menu-item routerLink="/review">Review</button>
+                <button mat-menu-item (click)="logout()">Logout</button>
+            </div>
+            <div *ngIf="!isLoggedIn">
+                <button mat-menu-item routerLink="/login">Login</button>
+            </div>
+        </mat-menu>
+    </div>
+</nav>
+<mat-divider></mat-divider>

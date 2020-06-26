@@ -1,0 +1,79 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>Edit:</mat-card-title>
+    </mat-card-header>
+    <mat-card-header *ngIf="picUrl">
+        <img mat-card-image [src]="getImage(picUrl)" width="160px" height="210px"/>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="details-form" [formGroup]="detailsGroup" (ngSubmit)="editDetails()">
+            <div>
+                <mat-form-field>
+                    <mat-label>Select a Employee</mat-label>
+                    <mat-select [(value)]="selected" [formControlName]="'username'"
+                        (selectionChange)="onChange(selected)" required>
+                        <mat-option *ngFor="let element of usernameArray" [value]="element">
+                            {{element}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br><span *ngIf="!detailsGroup.get('username').valid && detailsGroup.get('username').touched">
+                    Please select a employee
+                </span>
+            </div>
+            <div>
+                <div>
+                    <mat-form-field>
+                        <mat-label for="first_name">First Name</mat-label>
+                        <input matInput type="text" id="first_name" class="form-control" [formControlName]="'firstName'"
+                            name="first_name" required autofocus>
+                    </mat-form-field>
+                    <br><span *ngIf="!detailsGroup.get('firstName').valid && detailsGroup.get('firstName').touched">
+                        Please provide a valid first name
+                    </span>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label for="last_name">Last Name</mat-label>
+                        <input matInput type="text" id="last_name" class="form-control" [formControlName]="'lastName'"
+                            name="last_name" required>
+                    </mat-form-field>
+                    <br><span *ngIf="!detailsGroup.get('lastName').valid && detailsGroup.get('lastName').touched">
+                        Please provide a valid last name
+                    </span>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label for="oib">OIB</mat-label>
+                        <input matInput type="text" id="oib" class="form-control" [formControlName]="'oib'" name="oib">
+                    </mat-form-field>
+                    <br><span *ngIf="!detailsGroup.get('oib').valid && detailsGroup.get('oib').touched">
+                        Please provide a valid first name
+                    </span>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label for="address">Address</mat-label>
+                        <input matInput type="text" id="address" class="form-control" [formControlName]="'address'"
+                            name="address" required>
+                    </mat-form-field>
+                    <br><span *ngIf="!detailsGroup.get('address').valid && detailsGroup.get('address').touched">
+                        Please provide a valid first name
+                    </span>
+                </div>
+
+                <span>
+                    <button mat-stroked-button color="primary" type="submit" class="details">
+                        Save
+                    </button>
+                    <button *ngIf="selected" mat-stroked-button color="primary" type="button" class="details" (click)="sendMail()">
+                        Send Mail
+                    </button>
+                </span>
+                <div class="details-failed" *ngIf='this.isError'>
+                    <p class="details-failed-text">Save Failed.</p>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

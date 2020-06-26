@@ -1,0 +1,18 @@
+.table {
+    width: 80%;
+    margin: 0;
+    text-align: left;
+}
+
+table {
+    width: 100%;
+}
+
+mat-paginator{
+    margin: 0;
+    width: 100%;
+}
+
+.filter{
+    vertical-align: text-bottom;
+}

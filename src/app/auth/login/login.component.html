@@ -1,0 +1,42 @@
+<div class="row column:11">
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>Login:</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+                <div>
+                    <mat-form-field>
+                        <mat-label for="user_name">Username</mat-label>
+                        <input matInput type="text" id="user_name" class="form-control" [formControlName]="'username'"
+                            name="user_name" required autofocus>
+                    </mat-form-field>
+                    <br><span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
+                        Please provide a valid username
+                    </span>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <mat-label for="password">Password</mat-label>
+                        <input matInput type="password" id="password" class="form-control"
+                            [formControlName]="'password'" name="password" required>
+                    </mat-form-field>
+                    <br> <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+                        Password cannot be empty
+                    </span>
+
+                </div>
+
+                <span>
+                    <button mat-stroked-button color="primary" type="submit" class="login">
+                        Login
+                    </button>
+                </span>
+                <div class="login-failed" *ngIf='this.isError'>
+                    <p class="login-failed-text">Login Failed. Please check your credentials and try again.</p>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

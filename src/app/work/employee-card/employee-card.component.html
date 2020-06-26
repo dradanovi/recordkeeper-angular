@@ -1,0 +1,16 @@
+<div class="row employee-card">
+    <div class="employee-pic column column-5" *ngIf="picUrl"> <img mat-card-image [src]="getImage(picUrl)" width="160px" height="210px"/></div>
+    <div class="employee-info column column-5">
+        <mat-list>
+            <mat-list-item>Username: {{employee.username}} </mat-list-item>
+            <mat-list-item>First name: {{employee.firstName}} </mat-list-item>
+            <mat-list-item>Last name: {{employee.lastName}} </mat-list-item>
+        </mat-list>
+    </div>
+    <div class="column column-12">
+        <p>{{now | date:'medium'}}</p>
+    </div>
+    <div class="weather column column-12">
+        <app-weather></app-weather>
+    </div>
+</div>

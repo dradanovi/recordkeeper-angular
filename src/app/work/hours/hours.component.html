@@ -1,0 +1,4 @@
+<div>
+    <button *ngIf="!isWorking" mat-stroked-button (click)="startWork();">start</button>
+    <button *ngIf="isWorking" mat-stroked-button (click)="stopWork();">stop</button>
+</div>

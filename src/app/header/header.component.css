@@ -1,0 +1,19 @@
+.navigation {
+    min-height: 5em;
+}
+
+.navigation-menu {
+    padding-top: 1em;
+    margin: auto;
+    text-align: right;
+}
+
+.navigation-icon {
+    padding-top: 0.5em;
+    margin: auto;
+    text-align: left;
+}
+
+.mat-divider{
+    padding-bottom: 2em;
+}

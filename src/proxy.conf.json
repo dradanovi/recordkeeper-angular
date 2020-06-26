@@ -1,0 +1,14 @@
+{
+    "/api/*": {
+        "target": "http://mydomain.com",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+    "/localhost:4200/*": {
+        "target": "http://mydomain.com",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}

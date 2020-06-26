@@ -1,0 +1,18 @@
+.employee-card{
+    margin: 0;
+}
+
+.employee-pic{
+    margin: auto;
+    text-align: left;
+}
+
+.employee-info{
+    padding-top: 2em;
+    margin:auto;
+    text-align: right;
+}
+
+.weather{
+    padding-top: 4em;
+}
